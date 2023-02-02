@@ -1,21 +1,25 @@
+import java.io.*;
 import java.util.*;
 import java.net.*;
-import java.io.*;
-import java.net.InetAddress;
-
-public class ClientSocketTCP
-{
- public static void main(String args[]) throws Exception
- {
-  Scanner input  = new Scanner(System.in);
-  String ip = "localhost";
-  int port = 8888;
-  Socket client_socket = new Socket(ip,port);
-  InetAddress localhost = InetAddress.getLocalHost();
-  String msg = "Client Here.......\n";
-  OutputStreamWriter os = new OutputStreamWriter(client_socket.getOutputStream());
-  PrintWriter out = new PrintWriter(os);
-  os.write(msg);
-  os.flush();
- }
+public class Client
+{	
+	public static void main(String args[])throws Exception
+	{
+		String send="",r="";		
+		Socket MyClient = new Socket("192.168.0.106",25);
+		DataInputStream din=new DataInputStream(MyClient.getInputStream());
+		DataOutputStream dout = new DataOutputStream(MyClient.getOutputStream());
+		Scanner sc = new Scanner(System.in);		
+		while(!send.equals("stop")){ 
+			System.out.print("Send: ");
+			send = sc.nextLine();
+			dout.writeUTF(send);
+		}
+		dout.flush();
+		r=din.readUTF();
+		System.out.println("Reply: "+ r);			
+		dout.close();
+		din.close();
+		MyClient.close();
+	}
 }
