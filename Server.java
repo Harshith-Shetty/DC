@@ -1,10 +1,11 @@
+
 import java.util.*;
 import java.io.*;
 import java.net.*;
 public class Server {
     public static void main(String args[]) throws Exception{
     	//Server server = new Server();
-    	ServerSocket MyServer = new ServerSocket(25);
+    	ServerSocket MyServer = new ServerSocket(1025);
     	Socket ss = MyServer.accept();
     	DataInputStream din =new DataInputStream(ss.getInputStream());  
 		DataOutputStream dout=new DataOutputStream(ss.getOutputStream());

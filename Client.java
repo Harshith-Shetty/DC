@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.util.*;
 import java.net.*;
@@ -6,7 +7,7 @@ public class Client
 	public static void main(String args[])throws Exception
 	{
 		String send="",r="";		
-		Socket MyClient = new Socket("192.168.0.106",25);
+		Socket MyClient = new Socket("192.168.0.106",1025);
 		DataInputStream din=new DataInputStream(MyClient.getInputStream());
 		DataOutputStream dout = new DataOutputStream(MyClient.getOutputStream());
 		Scanner sc = new Scanner(System.in);		
