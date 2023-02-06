@@ -25,10 +25,6 @@ public class udpserver
 		while (true)
 		{
 
-			// Step 2 : create a DatgramPacket to receive the data.
-
-            
-
 			DpReceive = new DatagramPacket(receive, receive.length);
 
 			// Step 3 : revieve the data in byte buffer.
