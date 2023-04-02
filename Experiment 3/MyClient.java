@@ -4,6 +4,7 @@ public class MyClient {
   public static void main(String args[]) {
     try {
       int n1=0,n2=0;
+      Scanner sc=new Scanner(System.in);
       Adder stub = (Adder) Naming.lookup("rmi://localhost:5000/sonoo");
       System.out.println("Enter the Number 1");
       n1=sc.nextInt();
